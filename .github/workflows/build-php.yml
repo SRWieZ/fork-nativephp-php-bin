@@ -36,6 +36,7 @@ jobs:
           git clone https://github.com/crazywhalecc/static-php-cli.git
           cd static-php-cli
           git checkout main
+          [ ! -d php-bin ] && mkdir -p php-bin
           cd ../php-bin
 
       - shell: bash
