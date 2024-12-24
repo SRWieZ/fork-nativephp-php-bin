@@ -139,7 +139,7 @@ jobs:
           cp downloads/micro/patches/cli_static.patch downloads/micro/patches/cli_static_82.patch
           cp downloads/micro/patches/cli_static.patch downloads/micro/patches/cli_static_83.patch
           cp downloads/micro/patches/cli_static.patch downloads/micro/patches/cli_static_84.patch
-          sed -i '' '18d' downloads/micro/patches/cli_static_84.patch
+          sed -i "" "18d" downloads/micro/patches/cli_static_84.patch
           rm -f downloads/micro/patches/cli_static.patch
           cd ../php-bin
 
