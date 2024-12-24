@@ -141,6 +141,7 @@ jobs:
           cp downloads/micro/patches/cli_static.patch downloads/micro/patches/cli_static_84.patch
           sed -i '18d' downloads/micro/patches/cli_static_84.patch
           rm -f downloads/micro/patches/cli_static.patch
+          cat downloads/micro/patches/cli_static_84.patch
           cd ../php-bin
 
       - name: Build PHP
