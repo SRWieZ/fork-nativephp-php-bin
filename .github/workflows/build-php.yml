@@ -130,6 +130,9 @@ jobs:
       #
       # Remove downloads/micro/patches/cli_static.patch
       # Remove line 18 of downloads/micro/patches/cli_static_84.patch
+      # Change line 14:
+      # - From @@ -1160,6 +1160,11 @@ int main(int argc, char *argv[])
+      # - To @@ -1160,6 +1160,10 @@ int main(int argc, char *argv[])
       - name: Patch for windows 8.4 builds
         shell: bash
         run: |
@@ -140,6 +143,7 @@ jobs:
           cp downloads/micro/patches/cli_static.patch downloads/micro/patches/cli_static_83.patch
           cp downloads/micro/patches/cli_static.patch downloads/micro/patches/cli_static_84.patch
           sed -i '18d' downloads/micro/patches/cli_static_84.patch
+          sed -i 's/+1160,11/+1160,10/' your_patch_file.patch
           rm -f downloads/micro/patches/cli_static.patch
           cat downloads/micro/patches/cli_static_84.patch
           cd ../php-bin
