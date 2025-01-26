@@ -65,7 +65,6 @@ jobs:
           chmod +x spc
           [ ! -d static-php-cli/bin ] && mkdir -p static-php-cli/bin
           mv spc static-php-cli/bin/
-          ls -l static-php-cli/bin/
 
       - name: Create php-bin directory
         shell: bash
@@ -115,7 +114,6 @@ jobs:
       - name: SPC doctor
         shell: bash
         run: |
-          ls -l ../static-php-cli/bin/
           cd ../static-php-cli
           ./bin/spc doctor
           cd ../php-bin
@@ -137,6 +135,7 @@ jobs:
           key: spc-downloads-${{ env.PHP_EXT_HASH }}
 
       - name: Download PHP extension sources
+        shell: bash
         if: steps.cache-spc-downloads.outputs.cache-hit != 'true'
         run: |
           cd ../static-php-cli
@@ -144,9 +143,9 @@ jobs:
           cd ../php-bin
 
       - name: Build PHP
+        shell: bash
         run: |
           cd ../static-php-cli
-          ls -l bin/
           ./bin/spc build --build-cli "${{ env.PHP_EXTENSIONS }}"
           cd ../php-bin
 
