@@ -25,7 +25,7 @@ jobs:
     strategy:
       matrix:
         version: ["8.1", "8.2", "8.3", "8.4"]
-        os: [ "windows-latest"]
+        os: [ "macos-13", "macos-latest", "windows-latest" , "ubuntu-latest", "ubuntu-24.04-arm"]
 
     continue-on-error: true
 
@@ -143,7 +143,6 @@ jobs:
           cd ../php-bin
 
       - name: Build PHP
-        shell: cmd
         run: |
           cd ../static-php-cli
           ./bin/spc build --build-cli "${{ env.PHP_EXTENSIONS }}"
