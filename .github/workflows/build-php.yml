@@ -15,7 +15,7 @@ on:
       - main
 
 env:
-  GITHUB_TOKEN: ${{ secrets.PAT }}
+  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
 jobs:
   build:
@@ -119,7 +119,6 @@ jobs:
           ini-values: memory_limit=-1
 
       - name: SPC doctor
-        shell: bash
         run: |
           cd ../static-php-cli
           ./bin/${{ env.SPC_BINARY }} doctor
@@ -142,7 +141,6 @@ jobs:
           key: spc-downloads-${{ env.PHP_EXT_HASH }}
 
       - name: Download PHP extension sources
-        shell: bash
         if: steps.cache-spc-downloads.outputs.cache-hit != 'true'
         run: |
           cd ../static-php-cli
