@@ -113,7 +113,9 @@ jobs:
           ini-values: memory_limit=-1
 
       - name: SPC doctor
+        shell: bash
         run: |
+          ls -l ../static-php-cli/bin/
           cd ../static-php-cli
           ./bin/spc doctor
           cd ../php-bin
